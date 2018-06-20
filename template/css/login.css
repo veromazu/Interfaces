@@ -1,0 +1,18 @@
+section.small-section.login-page{
+    margin: 45px 0px 0px 0px;
+}
+
+#callout.container {
+    background-image: none !important;
+}
+
+.login-form-container {
+    float: right;
+}
+
+div.login-form-row{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin: 15px 0px;
+}
