@@ -74,7 +74,7 @@
                   <!-- Dropdown -->
                   <li><a href="#FAQ">FAQ</a></li>
                   <li><a href="#search">Buscar Usarios</a></li>
-                  <li><a href="report.html">Reportes</a></li>
+                  <li><a href="#report">Reportes</a></li>
                   <li class="dropdown active">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil<b class="caret"></b></a>
                      <ul class="dropdown-menu">
@@ -94,7 +94,7 @@
 
      <!-- Secciones -->
       <!-- Clouds SVG Divider -->
-      <div class="hidden-xs container-fluid cloud-divider">
+      <div class="hidden-xs container-fluid cloud-divider" id="report">
          <svg id="deco-clouds1" class="head" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M-5 100 Q 0 20 5 100 Z
                M0 100 Q 5 0 10 100
@@ -120,63 +120,123 @@
             </path>
          </svg>
       </div>
-      <!-- Section Services -->
-      <section id="about" class="color-section">
+      <!-- Section About -->
+      <section id="Reportes">
          <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
                <!-- Section heading -->
                <div class="section-heading">
-                  <h2>Bienvenido</h2>
+                  <h2>Estadísticas y Reportes</h2>
                </div>
             </div>
             <div class="row">
-         <!-- main text -->
-               <div class="col-md-12 col-lg-7 text-center">
-                  <h3 class="text-center">El mejor sistema de atención TAC</h3>
-                  <p>Nos enfocamos en evaluar los problemas de niños con Autismo(TAC) y en entender las prácticas y los problemas actuales que enfrentan estos niños en sus diferentes ambientes. A través del apoyo de tanto maestros y psicólogos como de los propios padres podrás monitorear y mantener al día el status del niño para así hacer seguimiento de las mejoras que tendrá gracias a los juegos de enseñanza con los que podrá interactuar.
-                  </p>
+                <div class="sidebar col-md-3">
+                 <!-- Categories -->
+                 <!-- About us Widget -->
+                 <div class="well">
+                    <h4>Explicación</h4>
+                    <p>En esta sección es posible conocer un balance general sobre los juegos y el desempeño de los niños en los mismos.</p>
+                 </div>
+                 <div class="well">
+                    <h4>Categories</h4>
+                    <div class="panel-group" id="accordion">
+                        <!-- Question 1 -->
+                        <div class="panel">
+                           <div class="panel-heading">
+                              <h6 class="panel-title">
+                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false">Popularidad de Juegos</a>
+                              </h6>
+                           </div>
+                           <div id="collapse1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                              <div class="panel-body">
+                                 <p>Esta sección muestra cuáles juegos son más accedidos por los usuarios a fin de analizar cuáles son aquellos juegos que llaman más la atención de los niños.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/panel -->
+                        <!-- Question 2 -->
+                        <div class="panel">
+                           <div class="panel-heading">
+                              <h6 class="panel-title">
+                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false">Mejoras Globales</a>
+                              </h6>
+                           </div>
+                           <div id="collapse2" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                              <div class="panel-body">
+                                 <p>El gráfico muestra según la información recogida de los resultados para cada niño, cuál han sido las áreas con mejoríasmejorias en general para todo el grupo de niños registrados.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/panel -->
+                        <!-- Question 3 -->
+                        <div class="panel">
+                           <div class="panel-heading">
+                              <h6 class="panel-title">
+                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false">Mejoras Individuales</a>
+                              </h6>
+                           </div>
+                           <div id="collapse3" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+                              <div class="panel-body">
+                                 <p>El gráfico muestra según la información recogida de los resultados para un niño específico, cuál han sido las áreas con mejorías.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <!--/panel -->           
+                     </div>
+                    <!-- /.row -->
+                 </div>
+                 <!-- /well -->
+              </div>
+              <div class="col-lg-9">
+                     <!-- Tabs -->
+                     <ul class="nav nav-tabs">
+                        <li class="active"><a href="#A" data-toggle="tab" aria-expanded="true">Popularidad de Juegos</a></li>
+                        <li class=""><a href="#B" data-toggle="tab" aria-expanded="false">Mejoras Globales</a></li>
+                        <li class=""><a href="#C" data-toggle="tab" aria-expanded="false">Mejoras Ind.</a></li>
+                     </ul>
+                     <div class="tabbable">
+                        <div class="tab-content color_block">
+                           <div class="tab-pane fade active in" id="A">
+                              <div class="chart">
+                                <canvas id="barChart1" style="height: 230px; width: 441px;" width="441" height="230"></canvas>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="B">
+                              <div class="chart">
+                                <canvas id="pie-chart" width="800" height="450"></canvas>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="C">
+                              <div class="form-group">
+                                <label for="sel1">Seleccione el nombre del niño:</label>
+                                <select class="form-control" id="sel1">
+                                  <option>Jose Perez</option>
+                                  <option>Maria Hernandez</option>
+                                  <option>Carlos Perez</option>
+                                  <option>Luis Rodriguez</option>
+                                </select>
+                              </div>
+                              <div class="chart">
+                                <canvas id="pie-chart2" width="800" height="450"></canvas>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- /tabbable -->
+                  </div>
+               <div class="col-sm-12 col-lg-9">
+                  <div class="chart">
+                    <canvas id="barChart1" style="height: 230px; width: 441px;" width="441" height="230"></canvas>
+                  </div>
                </div>
-               <!-- /col-sm-12-->
-               <div class="col-md-12 col-lg-5">
-                  <!-- Image -->
-                  <img src="img/testimonial1.jpg" alt="" class="center-block img-responsive img-curved">
-               </div>
-               <!-- /col-md-12-->
+               <!-- /col-lg-8 -->
             </div>
-            <!-- /row -->
-            <div class="row features">
-               <div class="col-lg-12 col-sm-12">
-                  <!-- item1 -->
-                  <div class="col-md-4 media text-center">
-                     <i class="flaticon-game"></i>
-                     <div class="media-body">
-                        <h5 class="media-heading">Juegos Interactivos</h5>
-                        <p>En la sección de Juegos Interactivos podrás acceder a la gama de juegos que ofrecemos.</p>
-                     </div>
-                  </div>
-                  <!-- item2 -->
-                  <div class="col-md-4 media text-center">
-                     <i class="flaticon-fruit"></i>
-                     <div class="media-body">
-                        <h5 class="media-heading">Un gran Equipo</h5>
-                        <p>En la sección de Equipo podrás conocer todo el personal docente y médico que labora para darte un mejor servicio.</p>
-                     </div>
-                  </div>
-              <!-- item3 -->
-                  <div class="col-md-4 media text-center">
-                     <i class="glyphicon glyphicon-signal" style="margin-top:0;"></i>
-                     <div class="media-body">
-                        <h5 class="media-heading">Reportes</h5>
-                        <p>Observa los avances de los niños en la sección de reportes. De esta forma obtendrás una visualización de cómo el niño se ha deselvuelto en los juegos interactivos.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- /row -->
+            <!-- /col-lg-7 -->
          </div>
-         <!-- /container-->
+         <!--/container-->    
       </section>
-      <!-- /Section ends -->
+      <!--/ Section ends -->
+    
 
 	  
 <!-- Footer -->
@@ -302,6 +362,8 @@
         </footer>
         <!-- /footer ends -->
 	  </div> <!-- /page width -->
+      <!-- ChartJS -->
+     <script src="js/Chart.min.js"></script>
       <!-- Core JavaScript Files -->
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -324,5 +386,66 @@
       <!-- LayerSlider script files -->
       <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
       <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+      <script type="text/javascript">
+         
+         new Chart(document.getElementById("barChart1"), {
+             type: 'bar',
+             data: {
+               labels: ["Juego 1", "Juego2", "Juego3", "Juego 4", "Juego 5"],
+               datasets: [
+                 {
+                   label: "Veces jugadas",
+                   backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                   data: [50,66,11,30,25]
+                 }
+               ]
+             },
+             options: {
+               legend: { display: false },
+               title: {
+                 display: true,
+                 text: 'Juegos más accedidos y mayor atracción en la plataforma'
+               }
+             }
+         });
+
+
+         new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+              labels: ["Hab. motrices", "Socialización", "Comportamiento", "Hab. sensoriales", "Hab. linguísticas"],
+              datasets: [{
+                label: "Porcentaje (%)",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [30,10,15,5,40]
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: 'Mejoras globales en los niños (%)'
+              }
+            }
+        });
+
+         new Chart(document.getElementById("pie-chart2"), {
+            type: 'pie',
+            data: {
+              labels: ["Hab. motrices", "Socialización", "Comportamiento", "Hab. sensoriales", "Hab. linguísticas"],
+              datasets: [{
+                label: "Porcentaje (%)",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [50,10,10,15,15]
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: 'Mejoras individuales (%)'
+              }
+            }
+        });
+
+      </script>
    </body>
 </html>
