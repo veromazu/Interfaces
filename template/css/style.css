@@ -993,11 +993,13 @@ blockquote small:before{display:none;}
 	padding: 0px;
 	transition: all .3s ease-out;
 	background:#fff;
+	height:450px;
 } 
 
 .blog-preview img {
 	min-width: 110% !important;
 	margin: 0px 0px 0px -20px;
+	height: 200px;
 }
 
 .blog-preview .latest-caption {
