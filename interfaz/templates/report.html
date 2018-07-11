@@ -20,7 +20,7 @@
             <i class="fa fa-bars"></i>
             </button>
             <div class="navbar-brand-centered page-scroll">
-               <a href="#page-top"><img src="img/logo.png"  alt=""></a>
+               <a href="#page-top"><img src="{% static 'img/logo.png' %}"  alt=""></a>
             </div>
          </div>
 		 
@@ -29,7 +29,7 @@
 		  <div class="container">
                <ul class="nav navbar-nav page-scroll navbar-left">
                   <li><a href="welcome.html">Inicio</a></li>
-                  <li><a href="faq.html">Servicios</a></li>
+                  <li><a href="/interfaz/templates/nutricion.html">Nutricion</a></li>
                   <li><a href="#team">Equipo</a></li>
                   <li><a href="menu.html">Juegos Interactivos</a></li>
                </ul>
@@ -325,6 +325,8 @@
         </footer>
     {% endblock contenido %}
       {% block scripts %}
+      <!-- ChartJS -->
+      <script src="{% static 'js/Chart.min.js' %}"></script>
       <!-- Core JavaScript Files -->
       <script src="{% static 'js/jquery.min.js' %}"></script>
       <script src="{% static 'js/bootstrap.min.js' %}"></script>

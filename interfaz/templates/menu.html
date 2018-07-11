@@ -31,7 +31,7 @@
       <div class="container">
                <ul class="nav navbar-nav page-scroll navbar-left">
                   <li><a href="{% url 'home' %}">Inicio</a></li>
-                  <li><a href="#services">Servicios</a></li>
+                  <li><a href="/interfaz/templates/nutricion.html">Nutricion</a></li>
                   <li><a href="#team">Equipo</a></li>
                   {% if user.userprofile.tipo_usuario == 'Estudiante' %}
                     <li><a href="{% url 'menu' %}">Juegos Interactivos</a></li>
@@ -228,7 +228,7 @@
                     <h4>Ninja de la Fruta</h4>
                     <p>¡Corta la fruta que aparece en pantalla!</p>
                     <!-- Button-->
-                    <a class="btn" href=".interfaz/templates/fruitninja.html">¡Jugar!</a>
+                    <a class="btn" href="interfaz/templates/fruitninja.html">¡Jugar!</a>
                   </div>
                   </div>
                 </div>

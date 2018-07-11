@@ -1070,7 +1070,7 @@ blockquote small:before{display:none;}
 /* blog jumbotron and well */
 
 .blog.jumbotron {
-	background : url(../img/blogheader.jpg) no-repeat;
+	background : url(../img/slide1.jpg) no-repeat;
 	background-size:cover;
 	background-position :top center;
 	padding:6%;
