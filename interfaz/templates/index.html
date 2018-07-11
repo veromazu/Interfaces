@@ -72,7 +72,7 @@
             <div class="container">
                 <ul class="nav navbar-nav page-scroll navbar-left">
                     <li>
-                        <a href="./index.html">Inicio</a>
+                        <a href="{% url 'index' %}">Inicio</a>
                     </li>
                     <li>
                         <a href="#services">Servicios</a>
@@ -81,22 +81,22 @@
                         <a href="#team">Equipo</a>
                     </li>
                     <li>
-                        <a href="./menu.html">Juegos Interactivos</a>
+                        <a href="{% url 'menu' %}">Juegos Interactivos</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav page-scroll navbar-right">
                     <!-- Dropdown -->
                     <li>
-                        <a href="./faq.html">FAQ</a>
+                        <a href="{% url 'faq' %}">FAQ</a>
                     </li>
                     <li>
-                        <a href="#search">Buscar Usarios</a>
+                        <a href="{% url 'search' %}">Buscar Usarios</a>
                     </li>
                     <li>
-                        <a href="#report">Reportes</a>
+                        <a href="{% url 'report' %}">Reportes</a>
                     </li>
                     <li>
-                        <a href="./login.html">Iniciar sesión</a>
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
                     </li>
                 </ul>
             </div>

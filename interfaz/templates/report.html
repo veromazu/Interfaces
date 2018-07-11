@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <!--[if IE]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <![endif]-->
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Page title -->
-      <title>JuegosTAC</title>
-      <!--[if lt IE 9]>
-      <script src="js/respond.js"></script>
-      <![endif]-->
-      <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-      <!-- Icon fonts -->
-      <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="fonts/flaticons/flaticon.css" rel="stylesheet" type="text/css">
-      <link href="fonts/glyphicons/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
-      <!-- Google fonts -->
-      <link href='https://fonts.googleapis.com/css?family=Lato:400,700,800' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
-      <!-- Theme CSS -->
-      <link href="css/style.css" rel="stylesheet">
-      <!-- Color Style CSS -->
-      <link href="styles/funtime.css" rel="stylesheet">
-      <!-- Owl Slider & Prettyphoto -->
-      <link rel="stylesheet" href="css/owl.carousel.css">
-      <link rel="stylesheet" href="css/prettyPhoto.css">
-      <!-- LayerSlider stylesheet -->
-      <link rel="stylesheet" href="layerslider/css/layerslider.css">
-      <!-- Favicons-->
-      <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-   </head>
-   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-   <!-- Page width 'Boxed' of 'Full' -->
+{% extends 'index.html' %}
+{% load static %}
+{% block contenido %}
    <div class="full">
       <!-- Preloader -->
       <div id="preloader">
@@ -360,32 +323,30 @@
                 </a>
             </div>
         </footer>
-        <!-- /footer ends -->
-	  </div> <!-- /page width -->
-      <!-- ChartJS -->
-     <script src="js/Chart.min.js"></script>
+    {% endblock contenido %}
+      {% block scripts %}
       <!-- Core JavaScript Files -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
       <!-- Google maps -->
-      <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?v=3' %}"></script>
       <!-- Main Js -->
-      <script src="js/main.js"></script>
-      <!-- Isotope -->	  
-      <script src="js/jquery.isotope.js"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+      <!-- Isotope -->    
+      <script src="{% static 'js/jquery.isotope.js' %}"></script>
       <!--Mail Chimp validator -->
-      <script src='js/mc-validate.js'></script>
+      <script src="{% static 'js/mc-validate.js' %}"></script>
       <!--Other Plugins -->
-      <script src="js/plugins.js"></script>
-	  <!-- Contact -->
-      <script src="js/contact.js"></script>
+      <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- Contact -->
+      <script src="{% static 'js/contact.js' %}"></script>
       <!-- Prefix free CSS -->
-      <script src="js/prefixfree.js"></script>	  	  
+      <script src="{% static 'js/prefixfree.js' %}"></script>       
       <!-- GreenSock -->
-      <script src="layerslider/js/greensock.js" type="text/javascript"></script>
+      <script src="{% static 'layerslider/js/greensock.js' %}" type="text/javascript"></script>
       <!-- LayerSlider script files -->
-      <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
-      <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+      <script src="{% static 'layerslider/js/layerslider.transitions.js' %}" type="text/javascript"></script>
+      <script src="{% static 'layerslider/js/layerslider.kreaturamedia.jquery.js' %}" type="text/javascript"></script>
       <script type="text/javascript">
          
          new Chart(document.getElementById("barChart1"), {
@@ -447,5 +408,4 @@
         });
 
       </script>
-   </body>
-</html>
+    {% endblock scripts %}

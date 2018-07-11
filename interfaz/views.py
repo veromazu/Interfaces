@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from .forms import *
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect,HttpResponse
+from django.contrib.auth import logout
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -71,5 +72,51 @@ class HomeView(TemplateView):
 		user=request.user
 		context = super(HomeView, self).get(request,**kwargs)
 		context['pagename'] = 'home'
+		context['user'] = user
+		return context
+
+class MenuView(TemplateView):
+	template_name='menu.html'
+	
+	def get(self,  request, *args, **kwargs):
+		user=request.user
+		context = super(MenuView, self).get(request,**kwargs)
+		context['pagename'] = 'menu'
+		context['user'] = user
+		return context
+
+class FaqView(TemplateView):
+	template_name='faq.html'
+	
+	def get(self,  request, *args, **kwargs):
+		user=request.user
+		context = super(FaqView, self).get(request,**kwargs)
+		context['pagename'] = 'menu'
+		context['user'] = user
+		return context
+
+def salir(request):
+	logout(request)
+	return HttpResponseRedirect('/')
+
+
+
+class ReportView(TemplateView):
+	template_name='report.html'
+	
+	def get(self,  request, *args, **kwargs):
+		user=request.user
+		context = super(ReportView, self).get(request,**kwargs)
+		context['pagename'] = 'menu'
+		context['user'] = user
+		return context
+
+class SearchView(TemplateView):
+	template_name='busqueda.html'
+	
+	def get(self,  request, *args, **kwargs):
+		user=request.user
+		context = super(SearchView, self).get(request,**kwargs)
+		context['pagename'] = 'menu'
 		context['user'] = user
 		return context

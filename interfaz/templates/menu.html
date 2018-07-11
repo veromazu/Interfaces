@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <!--[if IE]>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <![endif]-->
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- Page title -->
-      <title>JuegosTAC</title>
-      <!--[if lt IE 9]>
-      <script src="js/respond.js"></script>
-      <![endif]-->
-      <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-      <!-- Icon fonts -->
-      <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="fonts/flaticons/flaticon.css" rel="stylesheet" type="text/css">
-      <link href="fonts/glyphicons/bootstrap-glyphicons.css" rel="stylesheet" type="text/css">
-      <!-- Google fonts -->
-      <link href='https://fonts.googleapis.com/css?family=Lato:400,700,800' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:700,900' rel='stylesheet' type='text/css'>
-      <!-- Theme CSS -->
-      <link href="css/style.css" rel="stylesheet">
-      <!-- Color Style CSS -->
-      <link href="styles/funtime.css" rel="stylesheet">
-      <!-- Owl Slider & Prettyphoto -->
-      <link rel="stylesheet" href="css/owl.carousel.css">
-      <link rel="stylesheet" href="css/prettyPhoto.css">
-      <!-- LayerSlider stylesheet -->
-      <link rel="stylesheet" href="layerslider/css/layerslider.css">
-      <!-- Favicons-->
-      <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-   </head>
-   <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-   <!-- Page width 'Boxed' of 'Full' -->
+{% extends 'index.html' %}
+{% load static %}
+{% block contenido %}
    <div class="full">
       <!-- Preloader -->
       <div id="preloader">
@@ -58,45 +21,43 @@
             </button>
             <div class="navbar-brand-centered page-scroll">
                 <a href="#page-top">
-                    <img src="img/logo.png" alt="">
+                    <img src="{% static 'img/logo.png' %}" alt="">
                 </a>
             </div>
         </div>
     
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-brand-centered">
-            <div class="container">
-                <ul class="nav navbar-nav page-scroll navbar-left">
-                    <li>
-                        <a href="./index.html">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="#services">Servicios</a>
-                    </li>
-                    <li>
-                        <a href="#team">Equipo</a>
-                    </li>
-                    <li>
-                        <a href="./menu.html">Juegos Interactivos</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav page-scroll navbar-right">
-                    <!-- Dropdown -->
-                    <li>
-                        <a href="./faq.html">FAQ</a>
-                    </li>
-                    <li>
-                        <a href="./busqueda.html">Buscar Usarios</a>
-                    </li>
-                    <li>
-                        <a href="./report.html">Reportes</a>
-                    </li>
-                    <li>
-                        <a href="./login.html">Iniciar sesión</a>
-                    </li>
-                </ul>
-            </div>
+                 <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="collapse navbar-collapse" id="navbar-brand-centered">
+      <div class="container">
+               <ul class="nav navbar-nav page-scroll navbar-left">
+                  <li><a href="{% url 'home' %}">Inicio</a></li>
+                  <li><a href="#services">Servicios</a></li>
+                  <li><a href="#team">Equipo</a></li>
+                  {% if user.userprofile.tipo_usuario == 'Estudiante' %}
+                    <li><a href="{% url 'menu' %}">Juegos Interactivos</a></li>
+                  {% endif %}
+               </ul>
+               <ul class="nav navbar-nav page-scroll navbar-right">
+                  <!-- Dropdown -->
+                  <li><a href="{% url 'faq' %}">FAQ</a></li>
+                  {% if user.userprofile.tipo_usuario == 'Profesor' %}
+                    <li><a href="{% url 'search' %}">Buscar Usarios</a></li>
+                    <li><a href="{% url 'report' %}">Reportes</a></li>
+                  {% elif user.userprofile.tipo_usuario == 'Representante'%}
+                    <li><a href="{% url 'report' %}">Reportes</a></li>
+                  {% endif %}
+                  <li class="dropdown active">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil<b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="interfaz/templates/perfil.html">Ver Perfil</a></li>
+                        <!--li><a href="interfaz/templates/blog-post.html">Actualizar Perfil</a></li-->
+                        <li class="divider"></li>
+                        <li class="active"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                     </ul>
+                  </li>
+               </ul>
         </div>
+       </div>
         <!-- /.navbar-collapse -->
     </nav>
     <!-- /navbar ends -->
@@ -125,32 +86,32 @@
                   <div class="col-md-1"></div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/memoria1.png" alt="" />
+                    <img src="{% static 'img/memoria1.png' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Memoria</h4>
                       <p>¡Encuentra las parejas de los animales!</p>
                       <!-- Button-->
-                      <a class="btn" href="./memoria1.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/memoria1.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/memoria2.png" alt="" />
+                    <img src="{% static 'img/memoria2.png' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>¿Cuál es diferente?</h4>
                       <p>Dentro de una casa sobra un objeto, ¡encuéntralo!</p>
                       <!-- Button-->
-                      <a class="btn" href="./memoria2.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/memoria2.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/memoria3.png" alt="" />
+                    <img src="{% static 'img/memoria3.png' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>¿Dónde están?</h4>
                       <p>Hay un conjunto de objetos que cambian de lugar. ¡Míralos, recuérdalos y encuéntralos!</p>
                       <!-- Button-->
-                      <a class="btn" href="./memoria3.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/memoria3.html">¡Jugar!</a>
                     </div>
                   </div>
                 </div>  
@@ -160,32 +121,32 @@
                   <div class="col-md-1"></div>                    
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/sensorial1.png" alt="" />
+                    <img src="{% static 'img/sensorial1.png' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Texturas</h4>
                       <p>Identifica la textura de la imagen.</p>
                       <!-- Button-->
-                      <a class="btn" href="./sensorial1.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/sensorial1.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                  <img src="img/sensorial3.jpeg" alt="" />
+                  <img src="{% static 'img/sensorial3.jpeg' %}" alt="" />
                   <div class="latest-caption text-center">
                     <h4>Yoga</h4>
                     <p>¡Imita la pose del entrenador!</p>
                     <!-- Button-->
-                    <a class="btn" href="./sensorial3.html">¡Jugar!</a>
+                    <a class="btn" href="interfaz/templates/sensorial3.html">¡Jugar!</a>
                   </div>
                 </div> 
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/sensorial5.jpg" alt="" />
+                    <img src="{% static 'img/sensorial5.jpg' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Orquesta</h4>
                       <p>Escoge tu instrumento favorito y conviértete en una estrella.</p>
                       <!-- Button-->
-                      <a class="btn" href="./sensorial5.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/sensorial5.html">¡Jugar!</a>
                     </div>
                   </div>                  
                 </div>
@@ -193,22 +154,22 @@
                   <div class="col-md-1"></div>
                   <div class="blog-preview col-md-3">                  
                     <!-- Blog image -->
-                    <img src="img/sensorial4.jpg" alt="" />
+                    <img src="{% static 'img/sensorial4.jpg' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Plastijuego</h4>
                       <p>¡Moldea tus figuras favoritas!</p>
                       <!-- Button-->
-                      <a class="btn" href="./sensorial4.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/sensorial4.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/sensorial2.jpg" alt="" />
+                    <img src="{% static 'img/sensorial2.jpg' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Karaoke!</h4>
                       <p>Canta la canción con el juego.</p>
                       <!-- Button-->
-                      <a class="btn" href="./sensorial2.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/sensorial2.html">¡Jugar!</a>
                     </div>
                   </div>                  
                   <div class="col-md-3"></div>                  
@@ -219,32 +180,32 @@
                 <div class="col-md-1"></div>
                     <div class="blog-preview col-md-3">
                       <!-- Blog image -->
-                      <img src="img/cooking.png" alt="" />
+                      <img src="{% static 'img/cooking.png' %}" alt="" />
                       <div class="latest-caption text-center">
                         <h4>Maestro de la Cocina</h4>
                         <p>Prepara tu comida preferida con los movimientos de tu mano.</p>
                         <!-- Button-->
-                        <a class="btn" href="./cocinar.html">¡Jugar!</a>
+                        <a class="btn" href="interfaz/templates/cocinar.html">¡Jugar!</a>
                       </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/naturaleza.png" alt="" />
+                    <img src="{% static 'img/naturaleza.png' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Camina por la Naturaleza</h4>
                       <p>Explora la naturaleza y su belleza.</p>
                       <!-- Button-->
-                      <a class="btn" href="./naturaleza.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/naturaleza.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/robbie.jpeg" alt="" />
+                    <img src="{% static 'img/robbie.jpeg' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>¿Dónde está mi sombrero?</h4>
                       <p>Ayuda a nuestro amigo Robbie a encontrar su sombrero.</p>
                       <!-- Button-->
-                      <a class="btn" href="./sombrero.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/sombrero.html">¡Jugar!</a>
                     </div>
                   </div>
               </div>
@@ -252,22 +213,22 @@
                 <div class="col-md-1"></div>
                 <div class="blog-preview col-md-3">
                   <!-- Blog image -->
-                  <img src="img/pelota.jpg" alt="" />
+                  <img src="{% static 'img/pelota.jpg' %}" alt="" />
                   <div class="latest-caption text-center">
                     <h4>Lanza la Pelota</h4>
                     <p>Practica tu puntería, lanza la pelota.</p>
                     <!-- Button-->
-                    <a class="btn" href="./pelota.html">¡Jugar!</a>
+                    <a class="btn" href="interfaz/templates/pelota.html">¡Jugar!</a>
                   </div>
                 </div>
                 <div class="blog-preview col-md-3">
                   <!-- Blog image -->
-                  <img src="img/fruitninja.png" alt="" />
+                  <img src="{% static 'img/fruitninja.png' %}" alt="" />
                   <div class="latest-caption text-center">
                     <h4>Ninja de la Fruta</h4>
                     <p>¡Corta la fruta que aparece en pantalla!</p>
                     <!-- Button-->
-                    <a class="btn" href="./fruitninja.html">¡Jugar!</a>
+                    <a class="btn" href=".interfaz/templates/fruitninja.html">¡Jugar!</a>
                   </div>
                   </div>
                 </div>
@@ -278,32 +239,32 @@
                   <div class="col-md-1"></div>
                     <div class="blog-preview col-md-3">
                       <!-- Blog image -->
-                      <img src="img/lenguaje1.jpg" alt="" />
+                      <img src="{% static 'img/lenguaje1.jpg' %}" alt="" />
                       <div class="latest-caption text-center">
                         <h4>Unión de Frases</h4>
                         <p>¡Es momento de aprender algunas frases del día a día!.</p>
                         <!-- Button-->
-                        <a class="btn" href="./lenguaje1.html">¡Jugar!</a>
+                        <a class="btn" href="interfaz/templates/lenguaje1.html">¡Jugar!</a>
                       </div>
                     </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/lenguaje2.gif" alt="" />
+                    <img src="{% static 'img/lenguaje2.gif' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Imagenes y Sonidos</h4>
                       <p>¿Puedes identificar a que cosa pertene el sonido?.</p>
                       <!-- Button-->
-                      <a class="btn" href="./lenguaje2.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/lenguaje2.html">¡Jugar!</a>
                     </div>
                   </div>
                   <div class="blog-preview col-md-3">
                     <!-- Blog image -->
-                    <img src="img/lenguaje3.jpg" alt="" />
+                    <img src="{% static 'img/lenguaje3.jpg' %}" alt="" />
                     <div class="latest-caption text-center">
                       <h4>Imagenes y Nombres</h4>
                       <p>¿Hay muchas cosas en pantalla, listo para identificarlas?.</p>
                       <!-- Button-->
-                      <a class="btn" href="./lenguaje3.html">¡Jugar!</a>
+                      <a class="btn" href="interfaz/templates/lenguaje3.html">¡Jugar!</a>
                     </div>
                   </div>
                 </div>
@@ -423,7 +384,7 @@
                 <!-- Bottom Credits -->
                 <div class="col-lg-4 col-md-6 res-margin">
                     <a href="#page-top">
-                        <img src="img/logo.png" alt="" class="center-block">
+                        <img src="{% static 'img/logo.png' %}" alt="" class="center-block">
                     </a>
                     <!-- social-icons -->
                     <div class="social-media">
@@ -482,27 +443,4 @@
         </footer>
         <!-- /footer ends -->
     </div> <!-- /page width -->
-      <!-- Core JavaScript Files -->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <!-- Google maps -->
-      <script src="https://maps.googleapis.com/maps/api/js?v=3"></script>
-      <!-- Main Js -->
-      <script src="js/main.js"></script>
-      <!-- Isotope -->    
-      <script src="js/jquery.isotope.js"></script>
-      <!--Mail Chimp validator -->
-      <script src='js/mc-validate.js'></script>
-      <!--Other Plugins -->
-      <script src="js/plugins.js"></script>
-    <!-- Contact -->
-      <script src="js/contact.js"></script>
-      <!-- Prefix free CSS -->
-      <script src="js/prefixfree.js"></script>        
-      <!-- GreenSock -->
-      <script src="layerslider/js/greensock.js" type="text/javascript"></script>
-      <!-- LayerSlider script files -->
-      <script src="layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
-      <script src="layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
-   </body>
-</html>
+{% endblock contenido %}

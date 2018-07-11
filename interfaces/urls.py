@@ -24,5 +24,10 @@ urlpatterns = [
     path('login', LoginView.as_view(), name='login'),
     path('registro', RegistroView.as_view(), name='registro'),
     path('home', HomeView.as_view(), name='home'),
+    path('menu', MenuView.as_view(), name='menu'),
+    path('faq', FaqView.as_view(), name='faq'),
+    path('report', ReportView.as_view(), name='report'),
+    path('search', SearchView.as_view(), name='search'),
+    path('logout', salir, name='logout'),
     #path('<string:path>', 'django.views.static.serve',{'document_root', settings.STATIC_ROOT})
 ]#+ static(settings.STATIC_URL, document_root=settings.STATIC_URL)
