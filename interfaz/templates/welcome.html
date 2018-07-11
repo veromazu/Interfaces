@@ -38,7 +38,7 @@
                <ul class="nav navbar-nav page-scroll navbar-right">
                   <!-- Dropdown -->
                   <li><a href="{% url 'faq' %}">FAQ</a></li>
-                  {% if user.userprofile.tipo_usuario == 'Profesor' %}
+                  {% if user.userprofile.tipo_usuario == 'Profesor'  or user.userprofile.tipo_usuario == 'Investigador' or user.userprofile.tipo_usuario == 'Médico'%}
                     <li><a href="{% url 'search' %}">Buscar Usarios</a></li>
                     <li><a href="{% url 'report' %}">Reportes</a></li>
                   {% elif user.userprofile.tipo_usuario == 'Representante'%}
