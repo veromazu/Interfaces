@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from interfaz.views import *
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='home'),
-]
+    path('', IndexView.as_view(), name='index'),
+    path('login', LoginView.as_view(), name='login'),
+    path('registro', RegistroView.as_view(), name='registro'),
+    path('home', HomeView.as_view(), name='home'),
+    #path('<string:path>', 'django.views.static.serve',{'document_root', settings.STATIC_ROOT})
+]#+ static(settings.STATIC_URL, document_root=settings.STATIC_URL)

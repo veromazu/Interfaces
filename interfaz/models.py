@@ -19,4 +19,4 @@ class UserProfile(models.Model):
 	)
 
 	def __str__(self):
-		return self.user.email
+		return self.user.username
