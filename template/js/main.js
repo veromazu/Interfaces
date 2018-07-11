@@ -109,6 +109,78 @@ jQuery(function ($) {
             }
         });
 
+        $("#tA").owlCarousel({
+            items: 3,
+            dots: true,
+            margin: 40,
+            loop: true,
+            autoplay: false,
+            nav: true,
+            navText: [
+                "<i class='flaticon-arrows-1'></i>",
+                "<i class='flaticon-arrows'></i>"
+            ],
+            responsive: {
+                1: {items: 1,},
+                1000: {items: 2,},
+                1200: {items: 3,}
+            }
+        });
+
+        $("#tB").owlCarousel({
+            items: 3,
+            dots: true,
+            margin: 40,
+            loop: true,
+            autoplay: false,
+            nav: true,
+            navText: [
+                "<i class='flaticon-arrows-1'></i>",
+                "<i class='flaticon-arrows'></i>"
+            ],
+            responsive: {
+                1: {items: 1,},
+                1000: {items: 2,},
+                1200: {items: 3,}
+            }
+        });
+
+        $("#tC").owlCarousel({
+            items: 3,
+            dots: true,
+            margin: 40,
+            loop: true,
+            autoplay: false,
+            nav: true,
+            navText: [
+                "<i class='flaticon-arrows-1'></i>",
+                "<i class='flaticon-arrows'></i>"
+            ],
+            responsive: {
+                1: {items: 1,},
+                1000: {items: 2,},
+                1200: {items: 3,}
+            }
+        });
+
+        $("#tD").owlCarousel({
+            items: 3,
+            dots: true,
+            margin: 40,
+            loop: true,
+            autoplay: false,
+            nav: true,
+            navText: [
+                "<i class='flaticon-arrows-1'></i>",
+                "<i class='flaticon-arrows'></i>"
+            ],
+            responsive: {
+                1: {items: 1,},
+                1000: {items: 2,},
+                1200: {items: 3,}
+            }
+        });
+
         //Team Carousel	
 		
         $("#owl-team").owlCarousel({
