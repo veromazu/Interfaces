@@ -9,6 +9,8 @@ class RegisterForm(UserCreationForm):
         ('Estudiante', 'Estudiante'),
         ('Profesor', 'Profesor'),
         ('Representante','Representante'),
+        ('Médico','Médico'),
+        ('Investigador','Investigador'),
     )
 
     class Meta:

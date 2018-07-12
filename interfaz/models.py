@@ -9,6 +9,8 @@ class UserProfile(models.Model):
 		('Estudiante', 'Estudiante'),
 		('Profesor', 'Profesor'),
 		('Representante','Representante'),
+		('Médico','Médico'),
+		('Investigador','Investigador'),
 	)
 
 	tipo_usuario = models.CharField('Tipo de usuario',max_length=50,null=True,choices=ROLES)
